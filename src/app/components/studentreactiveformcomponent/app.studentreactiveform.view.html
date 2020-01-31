@@ -1,0 +1,57 @@
+<div class="container">
+    <h2>The Student Reactive Form</h2>
+    <!--The FormGroup from Component must bind with form tag
+     FormControl must bind with form-elements using formControlName-->
+    <form name="frmStudent" [formGroup]="frmStudent" (ngSubmit)="save()">
+        <div class="form-group">
+            <label>Student Row Id</label>
+            <input type="text" formControlName="StudentRowId" name="StudentRowId" class="form-control">
+            <div class="alert alert-danger" *ngIf="frmStudent.controls.StudentRowId.dirty&&!frmStudent.controls.StudentRowId.valid">
+                <p *ngIf="frmStudent.controls.StudentRowId.errors.required">Value is Must</p>
+                <p *ngIf="frmStudent.controls.StudentRowId.errors.minlength">Value must be 2 digits minimum</p>
+                <p *ngIf="frmStudent.controls.StudentRowId.errors.maxlength">Value can be 6 digits maximum</p>
+                <p *ngIf="frmStudent.controls.StudentRowId.errors.pattern">Value must not be string</p>
+                <p *ngIf="frmStudent.controls.StudentRowId.invalid">Value must be even</p>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Student Id</label>
+            <input type="text" formControlName="StudentId" name="StudentId" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Student Name</label>
+            <input type="text" formControlName="StudentName" name="StudentName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Course Name</label>
+            <select class="form-control" formControlName="CourseName" name="CourseName">
+        <option *ngFor="let c of courses" value="{{c}}">{{c}}</option>
+      </select>
+        </div>
+        <div class="form-group">
+            <label>University Name</label>
+            <select class="form-control" formControlName="UniversityName" name="UniversityName">
+        <option *ngFor="let u of universities" value="{{u}}">{{u}}</option>
+      </select>
+        </div>
+        <div class="form-group">
+            <input type="button" value="clear" class="btn btn-warning" (click)="clear()">
+            <input type="submit" value="save" [disabled]="!frmStudent.valid" class="btn btn-success">
+        </div>
+    </form>
+</div>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th *ngFor="let c of tableColumns">{{c}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of students" (click)="getSelectedStudent(s)">
+                <td *ngFor="let c of tableColumns">{{s[c]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

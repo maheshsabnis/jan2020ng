@@ -1,0 +1,47 @@
+<div class="container">
+    <h2>The Student Form</h2>
+    <form name="frmStudent">
+        <div class="form-group">
+            <label>Student Row Id</label>
+            <input type="text" required minlength="2" maxlength="5" pattern="[0-9]+" name="StudentRowId" class="form-control" [(ngModel)]="student.StudentRowId">
+        </div>
+        <div class="form-group">
+            <label>Student Id</label>
+            <input type="text" name="StudentId" class="form-control" [(ngModel)]="student.StudentId">
+        </div>
+        <div class="form-group">
+            <label>Student Name</label>
+            <input type="text" name="StudentName" class="form-control" [(ngModel)]="student.StudentName">
+        </div>
+        <div class="form-group">
+            <label>Course Name</label>
+            <select class="form-control" name="CourseName" [(ngModel)]="student.CourseName">
+        <option *ngFor="let c of courses" value="{{c}}">{{c}}</option>
+      </select>
+        </div>
+        <div class="form-group">
+            <label>University Name</label>
+            <select class="form-control" name="UniversityName" [(ngModel)]="student.UniversityName">
+        <option *ngFor="let u of universities" value="{{u}}">{{u}}</option>
+      </select>
+        </div>
+        <div class="form-group">
+            <input type="button" value="clear" class="btn btn-warning" (click)="clear()">
+            <input type="button" value="save" class="btn btn-success" (click)="save()">
+        </div>
+    </form>
+</div>
+<div class="container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th *ngFor="let c of tableColumns">{{c}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let s of students" (click)="getSelectedStudent(s)">
+                <td *ngFor="let c of tableColumns">{{s[c]}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

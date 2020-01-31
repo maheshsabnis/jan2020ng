@@ -1,0 +1,22 @@
+<div>
+    <h2>The Simple Component</h2>
+    <!--The Angular Interpolation -->
+    <div>{{message}}</div>
+    <br>
+    <div>{{3+4}}</div>
+    <br>
+    <!--The property binding-->
+    <input type="text" [value]="message">
+    <br>
+    <!--Event Bindign-->
+    <input type="button" value="Click Me" (click)="display($event)">
+    <br>
+    <input type="text" [(ngModel)]="name">
+    <br>
+    <input type="text" [(ngModel)]="name">
+    <br>
+    <input type="text" [(ngModel)]="name">
+    <br>
+    <div>{{name}}</div>
+
+</div>
