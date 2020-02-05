@@ -1,0 +1,12 @@
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th *ngFor="let c of columnHeaders">{{c}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let d of DataSource" (click)="getSelectedValue(d)">
+            <td *ngFor="let c of columnHeaders">{{d[c]}}</td>
+        </tr>
+    </tbody>
+</table>
