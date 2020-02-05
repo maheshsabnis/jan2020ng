@@ -46,7 +46,7 @@ export class StudentFormComponent implements OnInit {
     this.students =  this.logic.addStudent(this.student);
     console.log(JSON.stringify(this.students));
   }
-  getSelectedStudent(std: Student): void {
-    this.student = Object.assign({}, std);
+  getSelectedStudent(evt): void {
+     this.student = Object.assign({}, evt);
   }
 }

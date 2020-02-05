@@ -11,8 +11,8 @@
                 <p *ngIf="frmStudent.controls.StudentRowId.errors.minlength">Value must be 2 digits minimum</p>
                 <p *ngIf="frmStudent.controls.StudentRowId.errors.maxlength">Value can be 6 digits maximum</p>
                 <p *ngIf="frmStudent.controls.StudentRowId.errors.pattern">Value must not be string</p>
-                <p *ngIf="frmStudent.controls.StudentRowId.invalid">Value must be even</p>
-
+                <p *ngIf="frmStudent.controls.StudentRowId.errors.eveninvalid">Value must be even</p>
+                <p *ngIf="frmStudent.controls.StudentRowId.errors.nounique">Value must be unique</p>
             </div>
         </div>
         <div class="form-group">

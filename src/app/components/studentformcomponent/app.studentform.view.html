@@ -32,7 +32,8 @@
     </form>
 </div>
 <div class="container">
-    <table class="table table-bordered table-striped">
+    <app-datagrid-component [DataSource]="students" (notifyData)="getSelectedStudent($event)"></app-datagrid-component>
+    <!-- <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th *ngFor="let c of tableColumns">{{c}}</th>
@@ -43,5 +44,5 @@
                 <td *ngFor="let c of tableColumns">{{s[c]}}</td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
 </div>

@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 import {Student} from '../../models/app.student.model';
 import {Universities, Courses} from '../../models/app.constants';
 import { StudentLogic } from '../../models/app.student.logic';
-import { EvenValidator } from './app.custom.validator';
+import { EvenValidator, UniqueValidator } from './app.custom.validator';
 
 @Component({
   selector: 'app-studentreactiveform-component',
@@ -43,7 +43,8 @@ export class StudentReactiveFormComponent implements OnInit {
             Validators.minLength(2),
             Validators.maxLength(6),
             Validators.pattern('[0-9]+'),
-            EvenValidator.checkEven
+            EvenValidator.checkEven,
+            UniqueValidator.checkUnique
           ])),
       StudentId: new FormControl(this.student.StudentId),
       StudentName: new FormControl(this.student.StudentName),
